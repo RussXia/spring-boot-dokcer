@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web-server:
+    build: .
+    command: java -jar /home/app/target/ROOT.jar
+    ports:
+      - "8081:8081"
+    links:
+      - redis-server
+
+  redis-server:
+    image: "redis:4.0.13"
